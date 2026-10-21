@@ -1,0 +1,43 @@
+<main class="container">
+  <hgroup>
+    <h1>My TODO List</h1>
+    <p>Add, track, and view your to-dos.</p>
+  </hgroup>
+
+  @if (error()) {
+    <p class="error" role="alert">{{ error() }}</p>
+  }
+
+  <fieldset role="group">
+    <input
+      #newItem
+      placeholder="What needs to be done?"
+      aria-label="New todo title"
+      (keyup.enter)="addTodo(newItem.value); newItem.value = ''"
+    />
+    <button type="button" (click)="addTodo(newItem.value); newItem.value = ''">Add</button>
+  </fieldset>
+
+  @if (loading()) {
+    <p aria-busy="true">Loading todos…</p>
+  } @else if (todos().length === 0) {
+    <p><em>No TODO items yet. Add one above.</em></p>
+  } @else {
+    <ul class="todo-list">
+      @for (todo of todos(); track todo.id) {
+        <li>
+          <span class="title">{{ todo.title }}</span>
+          <small class="created-at">{{ todo.createdAt | date: 'short' }}</small>
+          <button
+            type="button"
+            class="secondary outline"
+            (click)="deleteTodo(todo.id)"
+            [attr.aria-label]="'Delete ' + todo.title"
+          >
+            Delete
+          </button>
+        </li>
+      }
+    </ul>
+  }
+</main>

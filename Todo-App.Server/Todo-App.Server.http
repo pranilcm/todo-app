@@ -1,0 +1,15 @@
+@Todo_App.Server_HostAddress = http://localhost:5046
+
+GET {{Todo_App.Server_HostAddress}}/api/todos
+Accept: application/json
+
+###
+
+POST {{Todo_App.Server_HostAddress}}/api/todos
+Content-Type: application/json
+
+{
+  "title": "Buy milk"
+}
+
+###

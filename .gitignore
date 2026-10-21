@@ -1,0 +1,17 @@
+# .NET
+bin/
+obj/
+*.user
+.vs/
+
+# Angular / Node (also see todo-app.client/.gitignore)
+node_modules/
+dist/
+.angular/
+
+# Test results
+[Tt]est[Rr]esult*/
+coverage/
+
+# Local tooling config
+.claude/

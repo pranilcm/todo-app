@@ -1,0 +1,36 @@
+:host {
+  display: block;
+}
+
+.error {
+  color: var(--pico-del-color);
+}
+
+.todo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.todo-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--pico-muted-border-color);
+}
+
+.todo-list .title {
+  flex: 1;
+  word-break: break-word;
+}
+
+.todo-list .created-at {
+  color: var(--pico-muted-color);
+  white-space: nowrap;
+}
+
+.todo-list button {
+  width: auto;
+  margin: 0;
+}
